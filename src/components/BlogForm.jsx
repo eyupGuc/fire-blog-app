@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "@mui/material/Container";
 import blok from "../images/blok.png";
 import Typography from "@mui/material/Typography";
@@ -6,14 +6,24 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { BlogContext } from "../contexts/BlogContext";
+import { AddBlog } from "../helpers/functions";
+import { useNavigate } from "react-router-dom";
 
+const initialValues = { title: "", imageUrl: "", content: "" };
 
 const BlogForm = () => {
- 
+  const navigate = useNavigate();
+  const { addBlog, setAddBlog } = useContext(BlogContext);
+  console.log(addBlog);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log()
+    console.log(addBlog);
+
+    AddBlog(addBlog, navigate);
+
+    setAddBlog(initialValues);
   };
 
   return (
@@ -50,8 +60,10 @@ const BlogForm = () => {
               type="text"
               autoComplete="current-password"
               name="title"
-              value={null}
-              onChange={null}
+              value={addBlog?.title || ""}
+              onChange={(e) =>
+                setAddBlog({ ...addBlog, title: e.target.value })
+              }
               required
             />
           </div>
@@ -61,10 +73,12 @@ const BlogForm = () => {
               label="Image URL"
               type="text"
               autoComplete="current-password"
-              name="ImageURL"
-              value={null}
+              name="imageUrl"
+              value={addBlog?.imageUrl || " "}
               required
-              onChange={null}
+              onChange={(e) =>
+                setAddBlog({ ...addBlog, imageUrl: e.target.value })
+              }
             />
           </div>
           <div>
@@ -74,9 +88,11 @@ const BlogForm = () => {
               type="text"
               autoComplete="current-password"
               name="content"
-              value={null}
+              value={addBlog?.content || " "}
               required
-              onChange={null}
+              onChange={(e) =>
+                setAddBlog({ ...addBlog, content: e.target.value })
+              }
               multiline
               rows={10}
             />
