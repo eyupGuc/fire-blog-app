@@ -1,26 +1,39 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useBlogFetch } from "../helpers/functions";
+import { DeleteBlog} from "../helpers/functions";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { Grid } from "@mui/material";
+
 import { useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../contexts/BlogContext";
 
 const Details = () => {
   const { state } = useLocation();
+  const {  setAddBlog } = useContext(BlogContext);
   // console.log("state geldi mi:", state);
   const navigate = useNavigate();
   // bgcolor: "#cfe8fc",
+  const handleButton = () => {
+    navigate(`/updateBlog/${state.id}`);
+    setAddBlog(state)
+    
+  };
+
+  const handleDelete=(id)=>{
+
+    DeleteBlog(state.id,navigate)
+  }
+
   return (
     <Container fixed sx={{ marginTop: "3rem" }}>
       <Box sx={{ height: "80vh" }}>
@@ -59,15 +72,10 @@ const Details = () => {
           </CardActions>
         </Card>
         <CardActions>
-          <Button
-            variant="contained"
-            onClick={() =>
-              navigate(`/updateBlog/${state.id}`, { state: state })
-            }
-          >
+          <Button variant="contained" onClick={handleButton}>
             update
           </Button>
-          <Button variant="contained">delete</Button>
+          <Button variant="contained" onClick={handleDelete}>delete</Button>
         </CardActions>
       </Box>
     </Container>

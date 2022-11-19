@@ -9,21 +9,26 @@ import Grid from "@mui/material/Grid";
 import { BlogContext } from "../contexts/BlogContext";
 import { AddBlog } from "../helpers/functions";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
-const initialValues = { title: "", imageUrl: "", content: "" };
+const initialValues={
+  title:"",imageUrl:"",content:""}
 
 const BlogForm = () => {
+  const{currentUser}=useContext(AuthContext);
+  // console.log(currentUser.email)
   const navigate = useNavigate();
   const { addBlog, setAddBlog } = useContext(BlogContext);
   console.log(addBlog);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(addBlog);
+    // console.log(addBlog);
 
-    AddBlog(addBlog, navigate);
+    AddBlog(addBlog, navigate,currentUser);
+    setAddBlog(initialValues)
 
-    setAddBlog(initialValues);
+  
   };
 
   return (
@@ -60,7 +65,7 @@ const BlogForm = () => {
               type="text"
               autoComplete="current-password"
               name="title"
-              value={addBlog?.title || ""}
+              value={addBlog.title}
               onChange={(e) =>
                 setAddBlog({ ...addBlog, title: e.target.value })
               }

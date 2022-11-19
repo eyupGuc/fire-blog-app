@@ -1,24 +1,38 @@
 import React, { useContext } from "react";
 import Container from "@mui/material/Container";
-import blok from "../images/blok.png";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { BlogContext } from "../contexts/BlogContext";
-import { AddBlog } from "../helpers/functions";
-import { useLocation, useNavigate } from "react-router-dom";
-
-const UpdateBlog = () => {
-  const {state}=useLocation();
-const handleSubmit=()=>{
-
+import { EditAndUpdateBlog } from "../helpers/functions";
+import { useNavigate } from "react-router-dom";
+const initialValues={
+  title:"",imageUrl:"",content:""
 }
+const UpdateBlog = () => {
+  const { addBlog, setAddBlog } = useContext(BlogContext);
+  const navigate=useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    EditAndUpdateBlog(addBlog,navigate)
+    setAddBlog(initialValues)
+  };
+  const handleChange=(e)=>{
+    e.preventDefault()
+    const{name,value}=e.target
+    setAddBlog({...addBlog,[name]:value})
+   
+    // console.log(addBlog)
+  
+
+  }
 
   return (
     <Container maxWidth="sm" align="center">
-      <img src={state.imageUrl} width="300px" alt="" />
+      <img src={addBlog.imageUrl} width="300px" alt="" />
       {/* There is already an h1 in the page, let's not duplicate it. */}
       <Typography variant="h3" component="h2">
         <code>-UPDATE BLOG-</code>
@@ -50,9 +64,9 @@ const handleSubmit=()=>{
               type="text"
               autoComplete="current-password"
               name="title"
-             value={state.title}
-             placeholder=""
-              required
+              value={addBlog.title}
+              onChange={handleChange}
+              placeholder=""
             />
           </div>
           <div>
@@ -62,10 +76,10 @@ const handleSubmit=()=>{
               type="text"
               autoComplete="current-password"
               name="imageUrl"
-             value={state.imageUrl}
-             placeholder=""
+              value={addBlog.imageUrl}
+              onChange={handleChange}
+              placeholder=""
               required
-              
             />
           </div>
           <div>
@@ -75,7 +89,8 @@ const handleSubmit=()=>{
               type="text"
               autoComplete="current-password"
               name="content"
-              value={state.content}
+              value={addBlog.content}
+              onChange={handleChange}
               required
               placeholder=""
               multiline
@@ -95,6 +110,6 @@ const handleSubmit=()=>{
       </Grid>
     </Container>
   );
-}
+};
 
-export default UpdateBlog
+export default UpdateBlog;
