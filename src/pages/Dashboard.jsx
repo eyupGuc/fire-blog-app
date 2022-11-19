@@ -38,8 +38,8 @@ const Dashboard = () => {
           <Grid
             margin={3}
             item
-            xs={6}
-            sm={6}
+            xs={12}
+            sm={12}
             md={4}
             lg={3}
             xl={2}

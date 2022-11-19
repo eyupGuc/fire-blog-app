@@ -31,7 +31,7 @@ const UpdateBlog = () => {
   }
 
   return (
-    <Container maxWidth="sm" align="center">
+    <Container sx={{marginTop:"2rem"}} maxWidth="sm" align="center">
       <img src={addBlog.imageUrl} width="300px" alt="" />
       {/* There is already an h1 in the page, let's not duplicate it. */}
       <Typography variant="h3" component="h2">

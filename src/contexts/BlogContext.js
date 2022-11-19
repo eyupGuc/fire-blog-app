@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+
 import { createContext } from "react";
-const initialValues = { title: "", imageUrl: "", content: ""};
+
 
 export const BlogContext = createContext();
 // const BlogContextProvider = ({ children }) => {

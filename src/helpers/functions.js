@@ -51,14 +51,14 @@ export const useBlogFetch = () => {
   return { isLoading, blogList };
 };
 
-export const EditAndUpdateBlog = (addBlog, navigate) => {
+export const EditAndUpdateBlog = async(addBlog, navigate) => {
   try {
     const db = getDatabase(app);
 
     const updates = {};
     updates["blog/" + addBlog.id] = addBlog;
 
-     update(ref(db), updates);
+    await update(ref(db), updates);
      navigate(-1)
   } catch (error) {
     console.log(error);

@@ -4,9 +4,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { blueGrey, blue } from "@mui/material/colors";
 
-
 function App() {
- 
   const theme = createTheme({
     palette: {
       primary: {

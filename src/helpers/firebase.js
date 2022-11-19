@@ -5,14 +5,14 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
-  sendPasswordResetEmail,
+ 
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
+ 
 } from "firebase/auth";
 
-// TODO: Replace the following with your app's Firebase project configuration
+
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
