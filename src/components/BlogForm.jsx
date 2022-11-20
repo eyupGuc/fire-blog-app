@@ -32,11 +32,11 @@ const BlogForm = () => {
   };
 
   return (
-    <Container maxWidth="sm" align="center">
+    <Container component="main" maxWidth="xs" align="center" sx={{marginTop:"3rem"}}>
       <img src={blok} alt="" />
       {/* There is already an h1 in the page, let's not duplicate it. */}
-      <Typography variant="h3" component="h2">
-        <code>-NEW BLOG-</code>
+      <Typography variant="h3" component="h2" color="secondary">
+        <code>──NEW BLOG──</code>
       </Typography>
       ;
       <Grid

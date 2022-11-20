@@ -13,6 +13,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import blog from "../images/blog.png";
 import { logOut } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
+import MessageRoundedIcon from "@mui/icons-material/MessageRounded";
+import { Button } from "@mui/material";
 
 export default function Navbar() {
   const { currentUser } = React.useContext(AuthContext);
@@ -20,8 +22,6 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const navigate = useNavigate();
   // console.log(currentUser.email);
-
-
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,52 +36,54 @@ export default function Navbar() {
     setAnchorEl(null);
     logOut();
   };
-  const handleLogin = () => {
+  const handleRegister = () => {
     setAnchorEl(null);
-    navigate("/login");
+    navigate("/Register");
   };
 
-  const handleNew=()=>{
+  const handleNew = () => {
     setAnchorEl(null);
     navigate("/newBlog");
-  }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <img src={blog} width="100px" alt="" />
-          </IconButton>
-          <Typography
+          <Box>
+            <img
+              src={blog}
+              style={{ height: "4rem", marginTop: "1rem" }}
+              alt=""
+            />
+          </Box>
+          <Box
             variant="h4"
             component="div"
             align="center"
-            sx={{ flexGrow: 1 }}
+            sx={{
+              flexGrow: 1,
+            
+              
+            }}
           >
-            <div>
-              <NavLink to="/">
-                <code>{"-<eGuc/>BLOG- "}</code>
-              </NavLink>
-            </div>
-          </Typography>
+            <Button
+              sx={{ color: "#e6b00f", fontSize: "2rem" }}
+              onClick={() => navigate("/")}
+            >
+              <code>{"──── <eGuc/>────"}</code>
+            </Button>
+          </Box>
           {currentUser.email ? (
             <div>
               <IconButton
-                size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle sx={{ fontSize: "4rem" }} />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -103,8 +105,6 @@ export default function Navbar() {
                 </MenuItem>
                 <MenuItem onClick={handleNew}>New</MenuItem>
                 <MenuItem onClick={handleLogOut}>Logout</MenuItem>
-
-               
               </Menu>
             </div>
           ) : (
@@ -138,9 +138,7 @@ export default function Navbar() {
                   Profile
                 </MenuItem>
                 <MenuItem onClick={handleNew}>New</MenuItem>
-                <MenuItem onClick={handleLogin}>Login</MenuItem>
-
-                
+                <MenuItem onClick={handleRegister}>Register</MenuItem>
               </Menu>
             </div>
           )}
