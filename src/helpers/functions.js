@@ -22,7 +22,8 @@ export const AddBlog = (addBlog, navigate,currentUser) => {
       title: addBlog.title,
       imageUrl: addBlog.imageUrl,
       content: addBlog.content,
-      email:currentUser.email
+      email:currentUser.email,
+      date: new Date().toDateString()
     });
     navigate("/");
   } catch (error) {

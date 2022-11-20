@@ -2,18 +2,18 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+
 import IconButton from "@mui/material/IconButton";
 
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { NavLink, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import blog from "../images/blog.png";
 import { logOut } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
-import MessageRoundedIcon from "@mui/icons-material/MessageRounded";
+
 import { Button } from "@mui/material";
 
 export default function Navbar() {
@@ -117,7 +117,7 @@ export default function Navbar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <AccountCircle sx={{ fontSize: "4rem" }}/>
               </IconButton>
               <Menu
                 id="menu-appbar"

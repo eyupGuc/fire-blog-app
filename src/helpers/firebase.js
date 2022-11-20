@@ -35,7 +35,7 @@ export const createUser = async (email, password, navigate) => {
     await createUserWithEmailAndPassword(auth, email, password);
     navigate("/");
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 
@@ -46,7 +46,7 @@ export const signUpWithGoogle = (navigate) => {
       navigate("/");
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 };
 
@@ -55,7 +55,7 @@ export const sigIn = async (email, password, navigate) => {
     await signInWithEmailAndPassword(auth, email, password);
     navigate("/");
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 

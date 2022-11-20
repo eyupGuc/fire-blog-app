@@ -2,13 +2,14 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import { signUpWithGoogle } from "../helpers/firebase";
 import { useState } from "react";
 import { sigIn } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
+import Typography from "@mui/material/Typography";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,28 +31,44 @@ const Login = () => {
   };
 
   return (
-    <Container component="main"  maxWidth="xs">
+    <Paper
+      style={{
+        backgroundImage: `url(${`https://picsum.photos/1600/900`})`,
+        height: "100vh",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        
+      }}
+    >
+      <Container  component="main" maxWidth="sm">
         <CssBaseline />
-      <Grid
-        container
-        justifyContent="center"
-        direction="row-reverse"
-        sx={{
-          height: "100vh",
-          p: 2,
-        }}
-      >
         <Box
-          textAlign="center"
-          component="form"
-          onSubmit={handleSubmit}
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "white",
+            height:"80vh",
+            borderRadius: "1rem"
+           
+            
           }}
-          noValidate
-          autoComplete="off"
         >
-          <div>
+          <Typography component="h1" variant="h5" color="secondary">
+            Sign in
+          </Typography>
+          <Box
+            textAlign="center"
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{
+              "& .MuiTextField-root": { m: 1, width: "50ch",height:"12ch"  },
+            }}
+            noValidate
+            autoComplete="off"
+          >
             <TextField
               id="outlined-email-input"
               label="Email"
@@ -62,9 +79,9 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              fullWidth
             />
-          </div>
-          <div>
+
             <TextField
               id="outlined-password-input"
               label="Password"
@@ -75,31 +92,29 @@ const Login = () => {
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
+              fullWidth
             />
-          </div>
-          <div>
-            <Button
-              variant="contained"
-              type="submit"
-              sx={{ marginTop: "1rem" }}
-            >
-              Login
-            </Button>
-          </div>
-          <div>
-            <Button
-              variant="outlined"
-              sx={{ marginTop: "1rem" }}
-              onClick={handleGoogleProvider}
-            >
-              With Google
-            </Button>
-          </div>
-          
-         
+
+            <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{ marginTop: "1rem" }}
+              >
+                Login
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{ marginTop: "1rem" }}
+                onClick={handleGoogleProvider}
+              >
+                With Google
+              </Button>
+            </Box>
+          </Box>
         </Box>
-      </Grid>
-    </Container>
+      </Container>
+    </Paper>
   );
 };
 

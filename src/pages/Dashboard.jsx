@@ -14,10 +14,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Dashboard = () => {
-  const { isLoading, blogList } = useBlogFetch();
-  const [favControl, setFavControl] = useState(true);
-  const [favPlus, setFavPlus] = useState(0);
-  // console.log(blogList);
+  const { blogList } = useBlogFetch();
+
+  const [favPlus] = useState(99);
+   console.log(blogList);
   const navigate = useNavigate();
 
 
@@ -33,6 +33,7 @@ const Dashboard = () => {
       }}
     >
       {blogList?.map((item) => {
+
         return (
           <Card key={item.id} sx={{ maxWidth: 345 }}>
             <IconButton
@@ -57,6 +58,9 @@ const Dashboard = () => {
               </Typography>
               <Typography variant="body2" color="text.primary">
                 {item.content}
+              </Typography>
+              <Typography variant="body2" color="secondary" marginTop="1rem">
+                {item.date}
               </Typography>
               <Typography>
                 <IconButton aria-label="add to favorites">

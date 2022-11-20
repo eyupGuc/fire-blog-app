@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
@@ -13,12 +13,11 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+
 import { useNavigate } from "react-router-dom";
 import { BlogContext } from "../contexts/BlogContext";
 import { AuthContext } from "../contexts/AuthContext";
-import { hover } from "@testing-library/user-event/dist/hover";
-import { padding } from "@mui/system";
+
 
 const Details = () => {
   const { state } = useLocation();
