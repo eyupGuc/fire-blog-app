@@ -71,7 +71,7 @@ export default function Navbar() {
               sx={{ color: "#e6b00f", fontSize: "2rem" }}
               onClick={() => navigate("/")}
             >
-              <code>{"──── <eGuc/>────"}</code>
+              <code>{"<eGuc/>"}</code>
             </Button>
           </Box>
           {currentUser.email ? (
