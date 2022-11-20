@@ -46,6 +46,11 @@ export default function Navbar() {
     navigate("/newBlog");
   };
 
+  const handleProfile=()=>{
+    setAnchorEl(null);
+    navigate("/profile")
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -100,7 +105,7 @@ export default function Navbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={() => navigate("/profile")}>
+                <MenuItem onClick={handleProfile }>
                   Profile
                 </MenuItem>
                 <MenuItem onClick={handleNew}>New</MenuItem>
@@ -134,7 +139,7 @@ export default function Navbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={() => navigate("/profile")}>
+                <MenuItem onClick={handleProfile }>
                   Profile
                 </MenuItem>
                 <MenuItem onClick={handleNew}>New</MenuItem>
