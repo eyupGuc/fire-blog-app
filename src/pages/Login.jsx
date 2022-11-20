@@ -38,10 +38,9 @@ const Login = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        
       }}
     >
-      <Container  component="main" maxWidth="sm">
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
@@ -49,26 +48,26 @@ const Login = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "white",
-            height:"80vh",
-            borderRadius: "1rem"
            
-            
+            height: "100vh",
+            borderRadius: "1rem",
+            marginLeft:"1rem",
+            marginRight:"1rem"
           }}
         >
-          <Typography component="h1" variant="h5" color="secondary">
-            Sign in
-          </Typography>
+          
           <Box
             textAlign="center"
             component="form"
             onSubmit={handleSubmit}
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "50ch",height:"12ch"  },
-            }}
+           
             noValidate
             autoComplete="off"
+            sx={{ backgroundColor: "white",borderRadius:"2rem",padding:"2rem"}}
           >
+            <Typography component="h1" variant="h5" color="secondary" sx={{marginBottom:"1rem"}}>
+            Sign in
+          </Typography>
             <TextField
               id="outlined-email-input"
               label="Email"
@@ -80,6 +79,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               fullWidth
+              sx={{marginBottom:"1rem"}}
             />
 
             <TextField

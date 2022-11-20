@@ -49,24 +49,22 @@ export default function Register() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "white",
+
             height: "80vh",
             borderRadius: "1rem",
           }}
         >
-        <Box
+          <Box
             textAlign="center"
             component="form"
             onSubmit={handleSubmit}
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "50ch",height:"12ch"  },
-            }}
+            sx={{ backgroundColor: "white",borderRadius:"2rem",padding:"2rem"}}
             noValidate
             autoComplete="off"
           >
-             <Typography component="h1" variant="h5" color="secondary">
-           Register
-          </Typography>
+            <Typography component="h1" variant="h5" color="secondary" sx={{marginBottom:"1rem"}}>
+              Register
+            </Typography>
             <TextField
               id="outlined-email-input"
               label="Email"
@@ -78,6 +76,7 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               fullWidth
+              sx={{marginBottom:"1rem"}}
             />
 
             <TextField
@@ -93,7 +92,9 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Box sx={{ display: "inline-block", justifyContent: "space-evenly" }}>
+            <Box
+              sx={{ display: "inline-block", justifyContent: "space-evenly" }}
+            >
               <Button
                 variant="contained"
                 type="submit"
