@@ -32,32 +32,37 @@ const UpdateBlog = () => {
 
   return (
     <Container sx={{marginTop:"2rem"}} maxWidth="sm" align="center">
-      <img src={addBlog.imageUrl} width="300px" alt="" />
-      {/* There is already an h1 in the page, let's not duplicate it. */}
+      <img src={addBlog.imageUrl}  alt="" />
+     
       <Typography variant="h3" component="h2">
         <code>-UPDATE BLOG-</code>
       </Typography>
-      ;
-      <Grid
-        container
-        justifyContent="center"
-        direction="row-reverse"
-        sx={{
-          height: "100vh",
-          p: 2,
-        }}
-      >
+      
+      <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+           
+           
+            borderRadius: "1rem",
+            marginLeft:"1rem",
+            marginRight:"1rem"
+          }}
+        >
         <Box
           textAlign="center"
           component="form"
           onSubmit={handleSubmit}
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "50ch" },
+            marginLeft:"1rem",
+            marginRight:"1rem"
           }}
           noValidate
           autoComplete="off"
         >
-          <div>
+          
             <TextField
               id="outlined-email-input"
               label="Title"
@@ -67,9 +72,11 @@ const UpdateBlog = () => {
               value={addBlog.title}
               onChange={handleChange}
               placeholder=""
+              fullWidth
+              sx={{marginBottom:"1rem"}}
             />
-          </div>
-          <div>
+          
+          
             <TextField
               id="outlined-password-input"
               label="Image URL"
@@ -80,9 +87,11 @@ const UpdateBlog = () => {
               onChange={handleChange}
               placeholder=""
               required
+              fullWidth
+              sx={{marginBottom:"1rem"}}
             />
-          </div>
-          <div>
+          
+          
             <TextField
               id="standard-multiline-flexible"
               label="Content"
@@ -95,9 +104,11 @@ const UpdateBlog = () => {
               placeholder=""
               multiline
               rows={10}
+              fullWidth
+             
             />
-          </div>
-          <div>
+         
+          
             <Button
               variant="contained"
               type="submit"
@@ -105,9 +116,9 @@ const UpdateBlog = () => {
             >
               update
             </Button>
-          </div>
+       
         </Box>
-      </Grid>
+     </Box>
     </Container>
   );
 };

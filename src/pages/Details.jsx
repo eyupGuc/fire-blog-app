@@ -47,7 +47,7 @@ const Details = () => {
       <Typography variant="h4" align="center" color="secondary">
         ──── DETAILS ────
       </Typography>
-      <Card sx={{ width: "65%", marginTop: "2rem" }}>
+      <Card sx={{ maxWidth: 500, marginTop: "2rem" }}>
         <CardMedia
           component="img"
           height="600"

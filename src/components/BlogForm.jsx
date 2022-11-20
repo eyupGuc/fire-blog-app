@@ -35,10 +35,11 @@ const BlogForm = () => {
     <Container component="main" maxWidth="xs" align="center" sx={{marginTop:"3rem"}}>
       <img src={blok} alt="" />
       {/* There is already an h1 in the page, let's not duplicate it. */}
-      <Typography variant="h3" component="h2" color="secondary">
+      <Typography variant="h3" component="h2" color="secondary" sx={{ marginLeft:"1rem",
+            marginRight:"1rem"}}>
         <code>──NEW BLOG──</code>
       </Typography>
-      ;
+      
       <Grid
         container
         justifyContent="center"
@@ -53,40 +54,47 @@ const BlogForm = () => {
           component="form"
           onSubmit={handleSubmit}
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "50ch" },
+            marginLeft:"1rem",
+            marginRight:"1rem"
           }}
           noValidate
           autoComplete="off"
+          
         >
-          <div>
+         
             <TextField
               id="outlined-email-input"
               label="Title"
               type="text"
               autoComplete="current-password"
               name="title"
-              value={addBlog.title}
+              value={addBlog?.title || " "}
               onChange={(e) =>
                 setAddBlog({ ...addBlog, title: e.target.value })
               }
               required
+              fullWidth
+              sx={{marginBottom:"1rem"}}
+              
             />
-          </div>
-          <div>
+       
+         
             <TextField
               id="outlined-password-input"
               label="Image URL"
               type="text"
               autoComplete="current-password"
               name="imageUrl"
+              sx={{marginBottom:"1rem"}}
               value={addBlog?.imageUrl || " "}
               required
+              fullWidth
               onChange={(e) =>
                 setAddBlog({ ...addBlog, imageUrl: e.target.value })
               }
             />
-          </div>
-          <div>
+       
+        
             <TextField
               id="standard-multiline-flexible"
               label="Content"
@@ -95,22 +103,25 @@ const BlogForm = () => {
               name="content"
               value={addBlog?.content || " "}
               required
+              fullWidth
+
               onChange={(e) =>
                 setAddBlog({ ...addBlog, content: e.target.value })
               }
               multiline
-              rows={10}
+              rows={5}
             />
-          </div>
-          <div>
+       
+        
             <Button
+            fullWidth
               variant="contained"
               type="submit"
               sx={{ marginTop: "1rem", width: "100%" }}
             >
               SUBMIT
             </Button>
-          </div>
+        
         </Box>
       </Grid>
     </Container>
