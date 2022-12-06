@@ -41,7 +41,7 @@ const Dashboard = () => {
             >
               <CardMedia
                 component="img"
-                height="140"
+               
                 src={item.imageUrl}
                 // image={item.imageUrl}
                 alt="image"

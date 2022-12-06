@@ -31,8 +31,8 @@ const UpdateBlog = () => {
   }
 
   return (
-    <Container sx={{marginTop:"2rem"}} maxWidth="sm" align="center">
-      <img src={addBlog.imageUrl}  alt="" />
+    <Container sx={{marginTop:"2rem"}} maxWidth="500px" align="center">
+      <img src={addBlog.imageUrl} fullWidth  alt="" />
      
       <Typography variant="h3" component="h2">
         <code>-UPDATE BLOG-</code>
