@@ -16,7 +16,7 @@ import { useState } from "react";
 const Dashboard = () => {
   const { blogList } = useBlogFetch();
 
-  const [favPlus] = useState(99);
+  const [favPlus] = useState("");
    console.log(blogList);
   const navigate = useNavigate();
 
