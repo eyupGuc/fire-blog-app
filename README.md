@@ -56,7 +56,7 @@ SOLUTION
 
 ## Expected Outcome
 
-![Project 008 Snapshot](fireblog.gif)
+![Project 008 Snapshot](fire_blog_app.gif)
 
 ## Objective
 
